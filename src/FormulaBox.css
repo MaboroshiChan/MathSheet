@@ -1,0 +1,8 @@
+.FormulaBox {
+    text-align: left;
+    background-color: #8897b6;
+    border-color: black;
+    border-style: solid;
+    width: 60%;
+    position: relative;
+}

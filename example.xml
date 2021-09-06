@@ -1,0 +1,40 @@
+<Math>
+<Proposition name="...">
+  <Condition></Condition>
+  <Condition></Condition>
+  <Condition></Condition>
+  <Conclusion></Conclusion>
+  <Proof>
+    <claim name="have">
+        <have></have>
+        <from></from>
+    </claim>
+    <claim name="assume">
+        <assume></assume>
+    </claim>
+    <claim name="assume">
+        <suffice></suffice>
+        <from></from>
+    </claim>
+    <claim name="show">
+        <show></show>
+    </claim>
+    <Calc></Calc>
+    <Induction on="" hypo="">
+        <base></base>
+        <step></step>
+    </Induction>
+    <contradiction>
+    </contradiction>
+    <contra-positive>
+    </contra-positive>
+</Proof>
+</Proposition>
+<Calculation>
+    <Expr></Expr>
+    <Expr></Expr>
+    <Expr></Expr>
+    <Expr></Expr>
+    <Expr></Expr>
+</Calculation>
+</Math>

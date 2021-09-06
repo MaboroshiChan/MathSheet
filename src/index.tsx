@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import MathSheet from "./MathSheet"
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MathSheet>
+    </MathSheet>
   </React.StrictMode>,
   document.getElementById('root')
 );

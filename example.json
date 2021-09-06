@@ -1,0 +1,40 @@
+{
+    "Math" : [
+        {
+            "proposition" : {
+                "name" : "name",
+                "conditions" : [],
+                "proof" : [
+                    {"have": "", "from": ""},
+                    {"show": ""},
+                    {"have": "", "from": ""},
+                    {"have": "", "from": ""},
+                    {
+                        "calc": [
+                            {
+                                "expr": "",
+                                "proof": ""
+                            },
+                            {
+                                "expr": "",
+                                "proof": ""
+                            },
+                            {
+                                "expr": "",
+                                "proof": ""
+                            }
+                        ]
+                    },
+                    {
+                        "induction": {
+                            "on" : "n",
+                            "hypo" : "Pn",
+                            "base case": {},
+                            "fromNtoN+1" : {}
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
