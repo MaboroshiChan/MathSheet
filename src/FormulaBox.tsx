@@ -1,17 +1,29 @@
 import React, { Component, Props } from 'react';
 import katex from 'katex';
 import "./FormulaBox.css"
+import Button from './Button';
 
-class FormulaBox extends Component {
+type FormulaBoxProps = {
+  addLine : (floorNum : number) => void,
+  deleteLine : (floorNum : number) => void,
+  index : number,
+  content : string
+}
+
+class FormulaBox extends Component<FormulaBoxProps> {
+
    render(): JSX.Element {
        return (
          <div className="FormulaBox">
-           This is Formula Box.
-           <br/>
-           This is next line.
+           <Button onClick={()=>this.props.addLine(this.props.index)}
+            label={'+'} className={"Add line"} />
+                 {this.props.content}
+           <Button onClick={()=>this.props.deleteLine(this.props.index)}
+            label={'-'} className={"Delete line"} />
          </div>
        );
    }
 };
+
 
 export default FormulaBox;
