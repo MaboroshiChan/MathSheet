@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormulaBox from './FormulaBox';
+import FormulaBox from './FormulaBox/FormulaBox';
 import Proposition from './MathBox';
 import Button from './Button'
 

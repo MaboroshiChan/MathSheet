@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import FormulaBox from './FormulaBox';
+import FormulaBox from './FormulaBox/FormulaBox';
 import './MathBox.css';
 import Latex from 'react-latex';
 

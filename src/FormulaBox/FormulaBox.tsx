@@ -1,14 +1,8 @@
 import React, { Component, Props } from 'react';
 import katex from 'katex';
 import "./FormulaBox.css"
-import Button from './Button';
-
-type FormulaBoxProps = {
-  addLine : (floorNum : number) => void,
-  deleteLine : (floorNum : number) => void,
-  index : number,
-  content : string
-}
+import Button from '../Button';
+import FormulaBoxProps from './FormulaBoxProps';
 
 class FormulaBox extends Component<FormulaBoxProps> {
 
