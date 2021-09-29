@@ -2,8 +2,9 @@ import { Component } from 'react';
 import FormulaBox from '../FormulaBox/FormulaBox';
 import './MathBox.css';
 import Latex from 'react-latex';
+import HaveFrom from '../FormulaBox/HaveFrom'
 
-type HaveFrom = {
+type HaveAndFrom = {
     have : string;
     from : string;
 }
@@ -25,7 +26,7 @@ type Contradiction = {
     proof : Proof;
 }
 
-type BasicTactic = HaveFrom | Show | Calc;
+type BasicTactic = HaveAndFrom | Show | Calc;
 
 type Induction = {
     on : string;
@@ -115,7 +116,7 @@ class Proposition extends Component implements Submittable {
             <div className="Definitions">
                 Definitions
                 {this.state.conditions.map((condition, idx)=>(
-                    <FormulaBox addLine={this.addCondition.bind(this)}
+                    <HaveFrom addLine={this.addCondition.bind(this)}
                     deleteLine={this.deleteLine.bind(this)} 
                     index={idx}
                     content = {condition}
