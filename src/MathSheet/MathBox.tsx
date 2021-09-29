@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import FormulaBox from './FormulaBox/FormulaBox';
+import FormulaBox from '../FormulaBox/FormulaBox';
 import './MathBox.css';
 import Latex from 'react-latex';
 
@@ -61,8 +61,6 @@ class PlainText extends Component implements Submittable {
        return (<br/>)//(<FormulaBox addLine={()=>{}} index={0} deleteLine={()=>{}}>{this.text}</FormulaBox>);
     }
 }
-
-
 
 class Proposition extends Component implements Submittable {
 

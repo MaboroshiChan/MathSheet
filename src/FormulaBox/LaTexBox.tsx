@@ -13,7 +13,8 @@ class LaTeXBox extends Component<LaTeXBoXProps>{
 
     render(){
       return (
-        <div className="TeXBox">
+        <div className="TeXBox" 
+             onChange={this.props.extract.bind(this)}>
             {this.state.latex_code}
         </div>)
     }

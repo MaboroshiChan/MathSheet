@@ -19,5 +19,4 @@ class FormulaBox extends Component<FormulaBoxProps> {
    }
 };
 
-
 export default FormulaBox;

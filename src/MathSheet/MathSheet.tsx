@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import FormulaBox from './FormulaBox/FormulaBox';
+import FormulaBox from '../FormulaBox/FormulaBox';
 import Proposition from './MathBox';
-import Button from './Button'
+import Button from '../Button'
 
 type MathSheetState = {
     num : number,

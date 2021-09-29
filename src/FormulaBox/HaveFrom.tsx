@@ -9,11 +9,16 @@ class HaveFrom extends Component<FormulaBoxProps>{
         from: ""
     }
 
-    extractFunc(have: string, from: string){
+    setHave(have: string){
         this.setState({
-            have: have,
+            have: have
+        })
+    }
+
+    setFrom(from: string){
+        this.setState({
             from: from
-        });
+        })
     }
     
     render(){
@@ -21,11 +26,13 @@ class HaveFrom extends Component<FormulaBoxProps>{
             <div className="HaveFrom">
                 <Button onClick={()=>this.props.addLine(this.props.index)}
                     label={'+'} className={"Add line"} />
-                    Have <LaTeXBox extract={this.extractFunc.bind(this)}/>
-                    From <LaTeXBox extract={this.extractFunc.bind(this)}/>
+                    Have <LaTeXBox extract={this.setHave.bind(this)}/>
+                    From <LaTeXBox extract={this.setFrom.bind(this)}/>
                 <Button onClick={()=>this.props.deleteLine(this.props.index)}
                     label={'-'} className={"Delete line"} />
             </div>
         );
     }
 };
+
+export default HaveFrom;

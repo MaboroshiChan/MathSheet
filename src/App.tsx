@@ -10,7 +10,7 @@ function App():JSX.Element {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <textarea>
+          <textarea>
             asdfaef
           </textarea>
         <a
