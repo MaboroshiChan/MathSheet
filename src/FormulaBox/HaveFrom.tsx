@@ -1,4 +1,4 @@
-import React, { Component, Props } from 'react';
+import {Component} from 'react';
 import FormulaBoxProps from './FormulaBoxProps';
 import Button from '../Button';
 import LaTeXBox from './LaTexBox';
@@ -26,8 +26,8 @@ class HaveFrom extends Component<FormulaBoxProps>{
             <div className="HaveFrom">
                 <Button onClick={()=>this.props.addLine(this.props.index)}
                     label={'+'} className={"Add line"} />
-                    Have <LaTeXBox extract={this.setHave.bind(this)}/>
-                    From <LaTeXBox extract={this.setFrom.bind(this)}/>
+                    Have: <LaTeXBox extract={this.setHave.bind(this)}/>   
+                    From: <LaTeXBox extract={this.setFrom.bind(this)}/>
                 <Button onClick={()=>this.props.deleteLine(this.props.index)}
                     label={'-'} className={"Delete line"} />
             </div>

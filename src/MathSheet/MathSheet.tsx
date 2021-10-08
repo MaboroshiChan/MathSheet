@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FormulaBox from '../FormulaBox/FormulaBox';
 import Proposition from './MathBox';
 import Button from '../Button'
+import Latex from 'react-latex-next';
 
 type MathSheetState = {
     num : number,
@@ -31,7 +32,7 @@ class MathSheet extends Component {
         <div className="MathSheet">
              {this.state.props}
              <Button onClick={this.increment.bind(this)}
-              label={'++'} 
+              label={'++'}
               className={"AddBox"} />
         </div>);
     }

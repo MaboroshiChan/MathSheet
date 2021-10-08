@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import FormulaBox from '../FormulaBox/FormulaBox';
 import './MathBox.css';
-import Latex from 'react-latex';
+import Latex from 'react-latex-next'
 import HaveFrom from '../FormulaBox/HaveFrom'
 
 type HaveAndFrom = {
@@ -74,6 +74,7 @@ class Proposition extends Component implements Submittable {
           proof : [],
           data : [1]
         }
+        
     }
 
     addCondition(cond : string): void {
@@ -112,25 +113,26 @@ class Proposition extends Component implements Submittable {
     }
 
     render(): JSX.Element {
+        const text = 'We give illustrations for the three processes $e^+e^{-1}$, gluon-gluon and $\\gamma\\gamma \\to W t\\bar b$.'
         return (<div className="Prop">
             <div className="Definitions">
                 Definitions
                 {this.state.conditions.map((condition, idx)=>(
-                    <HaveFrom addLine={this.addCondition.bind(this)}
+                    <FormulaBox addLine={this.addCondition.bind(this)}
                     deleteLine={this.deleteLine.bind(this)} 
                     index={idx}
-                    content = {condition}
+                    content={condition}
                     />
                 ))}
             </div>
             <br/>
             <h3>
-                <Latex>What is $(3\times 4) \div (5-3)$</Latex>
+                <Latex>{text}</Latex>
             </h3>
             <div className="Proof">
                 Proof: 
                 {this.state.data.map((_, idx)=>(
-                <FormulaBox addLine={this.addNewLine.bind(this)}
+                <HaveFrom addLine={this.addNewLine.bind(this)}
                  deleteLine={this.deleteLine.bind(this)}
                  index={idx}
                  content={"My content"}/>
