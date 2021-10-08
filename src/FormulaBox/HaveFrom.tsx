@@ -25,11 +25,11 @@ class HaveFrom extends Component<FormulaBoxProps>{
         return (
             <div className="HaveFrom">
                 <Button onClick={()=>this.props.addLine(this.props.index)}
-                    label={'+'} className={"Add line"} />
+                    label={'+'} className="Add line"/>
                     Have: <LaTeXBox extract={this.setHave.bind(this)}/>   
                     From: <LaTeXBox extract={this.setFrom.bind(this)}/>
                 <Button onClick={()=>this.props.deleteLine(this.props.index)}
-                    label={'-'} className={"Delete line"} />
+                    label={'-'} className="Delete line" />
             </div>
         );
     }

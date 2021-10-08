@@ -70,7 +70,7 @@ class Proposition extends Component implements Submittable {
     constructor(props){
         super(props);
         this.state = {
-          conditions : ["first"],
+          conditions : ["Input your conditions here..."],
           proof : [],
           data : [1]
         }
@@ -102,24 +102,30 @@ class Proposition extends Component implements Submittable {
        });
     }
 
-    deleteLine(floorNum : number): void {
+    deleteProof(floorNum : number): void {
         let arr = this.state.data;
         arr.splice(floorNum, 1);
-        console.log("delete event" + arr);
         // TODO: get rid of the black bar.
         this.setState({
             data : arr
         });
     }
 
+    deleteCondition(floorNum: number): void {
+        let arr = this.state.conditions;
+        arr.splice(floorNum,1);
+        this.setState({
+            condition: arr
+        })
+    }
+
     render(): JSX.Element {
-        const text = 'We give illustrations for the three processes $e^+e^{-1}$, gluon-gluon and $\\gamma\\gamma \\to W t\\bar b$.'
         return (<div className="Prop">
             <div className="Definitions">
-                Definitions
+                <b> Definitions </b>
                 {this.state.conditions.map((condition, idx)=>(
                     <FormulaBox addLine={this.addCondition.bind(this)}
-                    deleteLine={this.deleteLine.bind(this)} 
+                    deleteLine={this.deleteCondition.bind(this)} 
                     index={idx}
                     content={condition}
                     />
@@ -127,13 +133,12 @@ class Proposition extends Component implements Submittable {
             </div>
             <br/>
             <h3>
-                <Latex>{text}</Latex>
             </h3>
             <div className="Proof">
-                Proof: 
+                <b>Proof: </b> 
                 {this.state.data.map((_, idx)=>(
                 <HaveFrom addLine={this.addNewLine.bind(this)}
-                 deleteLine={this.deleteLine.bind(this)}
+                 deleteLine={this.deleteProof.bind(this)}
                  index={idx}
                  content={"My content"}/>
                 ))}
