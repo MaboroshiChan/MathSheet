@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import FormulaBox from '../FormulaBox/FormulaBox';
 import Proposition from './MathBox';
 import Button from '../Button'
-import Latex from 'react-latex-next';
 
 type MathSheetState = {
     num : number,
@@ -24,7 +23,6 @@ class MathSheet extends Component {
             num : this.state.num + 1,
             props : [...this.state.props, <Proposition />]
         });
-        console.log(this.state.num);
     }
 
     render(): JSX.Element{
