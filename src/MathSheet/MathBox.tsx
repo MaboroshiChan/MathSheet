@@ -100,9 +100,9 @@ class Proposition extends Component implements Submittable {
        this.setState(state=>{
            let front = this.state.data.splice(0, floorNum + 1);
            let res = [...front, 0].concat(this.state.data);
-           return {
+           this.setState({
                data : res
-           };
+           });
        });
     }
 

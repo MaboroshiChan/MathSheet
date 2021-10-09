@@ -30,7 +30,6 @@ class HaveFrom extends Component<FormulaBoxProps>{
                     Have: <LaTeXBox extract={this.setHave.bind(this)}/></span> 
                     <span className="from">From: <input></input> <Button onClick={()=>this.props.deleteLine(this.props.index)}
                     label={'-'} className="Delete line" /></span>
-                
             </div>
         );
     }
