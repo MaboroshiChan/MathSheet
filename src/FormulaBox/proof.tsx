@@ -1,17 +1,30 @@
 import { Component } from 'react';
 import FormulaBox from '../FormulaBox/FormulaBox';
+import HaveFrom from './HaveFrom';
+
+type MathBox = {
+    proofs : JSX.Element[];
+}
 
 export default class ProofBox extends Component {
-    state = {
-        proofs: []
+    state: MathBox;
+    constructor(props){
+        super(props);
+        this.state = {
+            proofs: [<FormulaBox
+            addLine={this.addStatement.bind(this)}
+            deleteLine={this.deleteStatement.bind(this)}
+            index={0}
+            content={"haha"}/>]
+        }
     }
-    addStatement(floorNum : number): void {
-        this.setState(state=>{
-            let front = this.state.proofs.splice(0, floorNum + 1);
-            let res = [...front, 0].concat(this.state.proofs);
-            return {
-                data : res
-            };
+
+    addStatement(floorNum : number, box: JSX.Element): void {
+        let front = this.state.proofs.splice(0, floorNum + 1);
+        let res = [...front, box].concat(this.state.proofs);
+        console.log("res " + res.length)
+        this.setState({
+            proofs : res
         });
      }
 
@@ -20,19 +33,14 @@ export default class ProofBox extends Component {
         arr.splice(index, 1);
         // TODO: get rid of the black bar.
         this.setState({
-            data : arr
+            res : arr
         });
      }
 
      render(){
          return (
             <div className="StatementBox">
-                {this.state.proofs.map((_, index)=><FormulaBox 
-                addLine={this.addStatement.bind(this)}
-                deleteLine={this.deleteStatement.bind(this)}
-                index={index}
-                content={"haha"}
-                />)}
+                {this.state.proofs}
             </div>
         )
      }

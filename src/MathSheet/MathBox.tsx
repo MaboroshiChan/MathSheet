@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import FormulaBox from '../FormulaBox/FormulaBox';
 import './MathBox.css';
-import HaveFrom from '../FormulaBox/HaveFrom'
+import HaveFrom from '../FormulaBox/HaveFrom';
+import ShowBox from '../FormulaBox/Show';
 
 type HaveAndFrom = {
     have : string;
@@ -141,7 +142,7 @@ class Proposition extends Component implements Submittable {
             <div className="Proof">
                 <b>Proof: </b> 
                 {this.state.data.map((_, idx)=>(
-                <HaveFrom addLine={this.addNewLine.bind(this)}
+                <ShowBox addLine={this.addNewLine.bind(this)}
                  deleteLine={this.deleteProof.bind(this)}
                  index={idx}
                  content={"My content"}/>

@@ -1,18 +1,12 @@
 import React, { Component, Props } from 'react';
-import FormulaBox from './FormulaBox';
 import FormulaBoxProps from './FormulaBoxProps';
+import ProofBox from './proof';
 
-class Show extends Component<FormulaBoxProps> {
-
-    state = {
-        args: []
-    }
-
-
+export default class ShowBox extends Component<FormulaBoxProps> {
     render(){
         return (
             <div className="Show">
-                
+               <ProofBox /> 
             </div>
         )
     }
