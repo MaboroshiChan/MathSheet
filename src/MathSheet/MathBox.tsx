@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import FormulaBox from '../FormulaBox/FormulaBox';
 import './MathBox.css';
-import Latex from 'react-latex-next'
 import HaveFrom from '../FormulaBox/HaveFrom'
 
 type HaveAndFrom = {
@@ -90,6 +89,11 @@ class Proposition extends Component implements Submittable {
               proof: this.state.proof
             });
         console.log(serialized);
+        //TODO: complete this.
+    }
+
+    updateInfo(): void{
+        return;
     }
 
     addNewLine(floorNum : number): void {

@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import MathSheet from "./MathSheet/MathSheet";
-import Latex from 'react-latex-next'
+import InputBoxInstance from "./FormulaInput/InputBoxInstance";
 
 ReactDOM.render(
   <React.StrictMode>
     <MathSheet>
     </MathSheet>
+    <InputBoxInstance/>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -2,6 +2,7 @@ import {Component} from 'react';
 import FormulaBoxProps from './FormulaBoxProps';
 import Button from '../Button';
 import LaTeXBox from './LaTexBox';
+import "./HaveFrom.css";
 
 class HaveFrom extends Component<FormulaBoxProps>{
     state = {
@@ -24,12 +25,12 @@ class HaveFrom extends Component<FormulaBoxProps>{
     render(){
         return (
             <div className="HaveFrom">
-                <Button onClick={()=>this.props.addLine(this.props.index)}
+                    <span className="have"><Button onClick={()=>this.props.addLine(this.props.index)}
                     label={'+'} className="Add line"/>
-                    Have: <LaTeXBox extract={this.setHave.bind(this)}/>   
-                    From: <LaTeXBox extract={this.setFrom.bind(this)}/>
-                <Button onClick={()=>this.props.deleteLine(this.props.index)}
-                    label={'-'} className="Delete line" />
+                    Have: <LaTeXBox extract={this.setHave.bind(this)}/></span> 
+                    <span className="from">From: <input></input> <Button onClick={()=>this.props.deleteLine(this.props.index)}
+                    label={'-'} className="Delete line" /></span>
+                
             </div>
         );
     }

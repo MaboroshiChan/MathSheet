@@ -1,5 +1,5 @@
 import React, { Component, Props } from 'react';
-import Latex from 'react-latex';
+import { MathComponent } from 'mathjax-react'
 import "./LaTexBox.css"
 
 type LaTeXBoXProps = {
@@ -9,14 +9,18 @@ type LaTeXBoXProps = {
 class LaTeXBox extends Component<LaTeXBoXProps>{
     
     state = {
-        latex_code: "$\\frac{1}{2} + \\frac{1}{2} = 1$"
+        latex_code: "P \\to Q \\to R"
     };
+
+    clickEvent(): void{
+        
+    }
 
     render(){
       return (
         <span className="TeXBox" 
              onChange={this.props.extract.bind(this)}>
-            <Latex>{this.state.latex_code}</Latex>
+            <MathComponent tex={this.state.latex_code} display={false}/>
         </span>)
     }
 }

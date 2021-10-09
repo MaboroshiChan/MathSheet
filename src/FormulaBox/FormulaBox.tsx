@@ -1,5 +1,5 @@
 import React, { Component, Props } from 'react';
-import katex from 'katex';
+import { MathComponent } from 'mathjax-react';
 import "./FormulaBox.css"
 import Button from '../Button';
 import FormulaBoxProps from './FormulaBoxProps';
@@ -11,7 +11,7 @@ class FormulaBox extends Component<FormulaBoxProps> {
          <div className="FormulaBox">
            <Button onClick={()=>this.props.addLine(this.props.index)}
             label={'+'} className={"Add line"} />
-                 {this.props.content}
+                <MathComponent display={false} tex={`${this.props.index} \\text{ Condition}`}/>
            <Button onClick={()=>this.props.deleteLine(this.props.index)}
             label={'-'} className={"Delete line"} />
          </div>
