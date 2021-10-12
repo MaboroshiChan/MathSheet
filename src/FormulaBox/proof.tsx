@@ -19,10 +19,9 @@ export default class ProofBox extends Component {
         }
     }
 
-    addStatement(floorNum : number, box: JSX.Element): void {
+    addStatement(floorNum : number, box: JSX.Element = null): void {
         let front = this.state.proofs.splice(0, floorNum + 1);
         let res = [...front, box].concat(this.state.proofs);
-        console.log("res " + res.length)
         this.setState({
             proofs : res
         });
