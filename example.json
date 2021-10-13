@@ -1,12 +1,16 @@
 {
-    "Math" : [
+    "MathBox" : [
         {
             "proposition" : {
                 "name" : "name",
                 "conditions" : [],
                 "proof" : [
                     {"have": "", "from": ""},
-                    {"show": ""},
+                    {"show": {
+                            "statement": "",
+                            "proof": [] 
+                        }
+                    },
                     {"have": "", "from": ""},
                     {"have": "", "from": ""},
                     {

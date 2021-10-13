@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FormulaBox from '../FormulaBox/FormulaBox';
-import Proposition from './MathBox';
+import Proposition from '../FormulaBox/Proposition';
 import Button from '../Button'
 
 type MathSheetState = {
@@ -21,7 +21,7 @@ class MathSheet extends Component {
     increment(): void {
         this.setState({
             num : this.state.num + 1,
-            props : [...this.state.props, <Proposition />]
+            props : [...this.state.props, <Proposition conditions={[]} proof={[]} />]
         });
     }
 

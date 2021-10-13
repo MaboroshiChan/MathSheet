@@ -21,7 +21,8 @@ class LaTeXBox extends Component<LaTeXBoXProps>{
         <span className="TeXBox" 
              onChange={this.props.extract.bind(this)}>
             <MathComponent tex={this.state.latex_code} display={false}/>
-        </span>)
+        </span>
+      )
     }
 }
 
