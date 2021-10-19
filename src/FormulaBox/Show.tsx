@@ -3,7 +3,7 @@ import FormulaBoxProps from './FormulaBoxProps';
 import ProofComponent from './ProofComponent';
 import Proof from './Proof';
 
-interface ShowBoxProps extends FormulaBoxProps {
+interface ShowBoxProps {
     proof: Proof[]
 }
 

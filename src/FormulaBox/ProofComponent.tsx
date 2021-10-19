@@ -1,9 +1,8 @@
 import { Component } from 'react';
-import { isTemplateSpan } from 'typescript';
-import FormulaBox from './FormulaBox';
 import HaveFrom from './HaveFrom';
 import {match, when, select} from 'ts-pattern';
 import Proof from './Proof'
+import ShowBox from './Show';
 
 type ProofProps = {
     proof: Proof[]
@@ -48,6 +47,7 @@ export default class ProofComponent extends Component<ProofProps> {
                 content={""}
                 have={res.have}
                 from={res.from}/>)
+              .with({show: select("show")}, res=><ShowBox proof={[]} />)
               .otherwise(_=><div />)
      }
 

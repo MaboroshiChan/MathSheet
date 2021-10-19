@@ -1,6 +1,4 @@
 import { Component } from "react";
-import ShowBox from "./Show";
-import Submittable from "../Interfaces/Submittable";
 import FormulaBox from './FormulaBox';
 import Proof from './Proof';
 import ProofComponent from "./ProofComponent";
@@ -71,9 +69,7 @@ class Proposition extends Component<PropositionProps> {
             </h3>
             <div className="Proof">
                 <b>Proof: </b> 
-                {this.state.proof.map((_, idx)=>(
                 <ProofComponent proof={this.props.proof}/>
-                ))}
              </div>
         </div>);
     }
