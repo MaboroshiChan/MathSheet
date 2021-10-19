@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import FormulaBox from '../FormulaBox/FormulaBox';
 import Proposition from '../FormulaBox/Proposition';
-import Button from '../Button'
+import Button from '../Button';
+import Proof from '../FormulaBox/Proof';
 
 type MathSheetState = {
     num : number,
@@ -21,8 +22,12 @@ class MathSheet extends Component {
     increment(): void {
         this.setState({
             num : this.state.num + 1,
-            props : [...this.state.props, <Proposition conditions={[]} proof={[]} />]
+            props : [...this.state.props, <Proposition conditions={["WTF"]} proof={[]} />] // need to fill props.
         });
+    }
+
+    fetchData(url: string):void{
+        return;
     }
 
     render(): JSX.Element{

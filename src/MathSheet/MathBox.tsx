@@ -2,7 +2,7 @@ import { Component } from 'react';
 import FormulaBox from '../FormulaBox/FormulaBox';
 import './MathBox.css';
 import HaveFrom from '../FormulaBox/HaveFrom';
-import ShowBox from '../FormulaBox/Show';
+import ShowBox from '../FormulaBox/ShowFrom';
 import Submittable from '../Interfaces/Submittable';
 import Proposition from '../FormulaBox/Proposition';
 import Proof from '../FormulaBox/Proof'

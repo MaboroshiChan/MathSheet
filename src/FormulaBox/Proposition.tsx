@@ -53,6 +53,20 @@ class Proposition extends Component<PropositionProps> {
         })
     }
 
+    setCondition(index: number, condition: string){
+        return; // TODO 
+    }
+
+    setProof(pfs: Proof[]){
+        this.setState({
+            proof: pfs
+        });
+    }
+
+    submit(url: string): void{
+        return;
+    }
+
     render(): JSX.Element {
         return (<div className="Prop">
             <div className="Definitions">
@@ -61,7 +75,8 @@ class Proposition extends Component<PropositionProps> {
                     <FormulaBox addLine={this.addCondition.bind(this)} 
                                 deleteLine={this.deleteCondition.bind(this)}
                                 index={idx}
-                                content={condition}/>
+                                content={condition}
+                                setFormula={this.setCondition.bind(this)}/>
                 ))}
             </div>
             <br/>
@@ -69,7 +84,8 @@ class Proposition extends Component<PropositionProps> {
             </h3>
             <div className="Proof">
                 <b>Proof: </b> 
-                <ProofComponent proof={this.props.proof}/>
+                <ProofComponent proof={this.props.proof} 
+                setProof={this.setProof.bind(this)}/>
              </div>
         </div>);
     }

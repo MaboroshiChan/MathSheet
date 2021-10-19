@@ -1,8 +1,8 @@
-type FormulaBoxProps = {
+type FormulaBoxPropsType = {
   addLine : (floorNum : number, box: JSX.Element) => void,
   deleteLine : (floorNum : number) => void,
   index : number,
-  content : string
+  content : string,
 }
 
-export default FormulaBoxProps
+export default FormulaBoxPropsType;
