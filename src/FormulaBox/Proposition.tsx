@@ -54,7 +54,7 @@ class Proposition extends Component<PropositionProps> {
     }
 
     setCondition(index: number, condition: string){
-        return; // TODO 
+        return; // TODO: implement this
     }
 
     setProof(pfs: Proof[]){

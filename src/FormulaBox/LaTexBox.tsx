@@ -4,12 +4,13 @@ import "./LaTexBox.css"
 
 type LaTeXBoXProps = {
     extract: (a: string)=>void,
+    latex_code: string
 }
 
 class LaTeXBox extends Component<LaTeXBoXProps>{
     
     state = {
-        latex_code: "P \\to Q \\to R"
+        latex_code: this.props.latex_code
     };
 
     clickEvent(): void{

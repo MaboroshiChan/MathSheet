@@ -8,43 +8,40 @@ import LaTeXBox from './LaTexBox';
 interface ShowBoxProps extends FormulaBoxProps {
     show: string,
     from: string,
-    setRoot: (index: number)=>void
+    setRoot: (index: number) => void
 }
 
 export default class ShowBox extends Component<ShowBoxProps> {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            show: this.props.show,
-            from: this.props.from,
-        }
+    state = {
+        show: this.props.show,
+        from: this.props.from,
     }
 
-    setShow(show: string){
+    setShow(show: string) {
         this.setState({
             show: show
         });
     }
 
-    setFrom(from: string){
+    setFrom(from: string) {
         this.setState({
             from: from
         });
     }
 
-    render(){
+    render() {
         return (
             <div className="Show">
-               <div className="HaveFrom">
+                <div className="HaveFrom">
                     <span className="have">
-                    <Button onClick={this.props.addLine.bind(this)(this.props.index, null)}
-                    label={'+'} className="Add line"/>
-                    Have: <LaTeXBox extract={this.setShow.bind(this)}/></span> 
-                    <span className="from">From: <input></input> 
-                    <Button onClick={()=>this.props.deleteLine(this.props.index)}
-                    label={'-'} className="Delete line" /></span>
-               </div>
+                        <Button onClick={this.props.addLine.bind(this)(this.props.index, null)}
+                            label={'+'} className="Add line" />
+                        Show: <LaTeXBox extract={this.setShow.bind(this)} latex_code={this.state.show} /></span>
+                    <span className="from">From: <input></input>
+                        <Button onClick={() => this.props.deleteLine(this.props.index)}
+                            label={'-'} className="Delete line" /></span>
+                </div>
             </div>
         )
     }
