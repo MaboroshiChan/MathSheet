@@ -4,6 +4,7 @@ import Proposition from '../FormulaBox/Proposition';
 import Button from '../Button';
 import Proof from '../FormulaBox/Proof';
 
+
 type MathSheetState = {
     num : number,
     props : Proposition[]

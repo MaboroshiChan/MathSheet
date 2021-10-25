@@ -4,6 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import MathSheet from "./MathSheet/MathSheet";
 import InputBoxInstance from "./FormulaInput/InputBoxInstance";
+import Provider from 'react-redux';
 
 ReactDOM.render(
   <React.StrictMode>

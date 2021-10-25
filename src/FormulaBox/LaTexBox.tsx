@@ -1,11 +1,17 @@
-import React, { Component, Props } from 'react';
+import { Component} from 'react';
 import { MathComponent } from 'mathjax-react'
-import "./LaTexBox.css"
+import "./LaTexBox.css";
+import { createStoreHook, useSelector, createSelectorHook } from 'react-redux';
+
+const refreshFormulaInputBox = (state, action) => {
+  
+}
 
 type LaTeXBoXProps = {
     extract: (a: string)=>void,
     latex_code: string
 }
+
 
 class LaTeXBox extends Component<LaTeXBoXProps>{
     
@@ -14,7 +20,7 @@ class LaTeXBox extends Component<LaTeXBoXProps>{
     };
 
     clickEvent(): void{
-        
+      
     }
 
     render(){

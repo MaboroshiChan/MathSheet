@@ -1,22 +1,20 @@
 import React, { Component, Props } from 'react';
-import InputBox from "./InputBox"
+import InputBox from "./InputBox";
+import {createStoreHook, createSelectorHook, useSelector, useDispatch} from "react-redux";
 
-export default class InputBoxInstance extends Component implements InputBox {
 
-    state = {
-        tex: ""
-    }
+const InputBoxInstance = props => {
 
-    tex(){
-        return "";
-    }
+    const dispatch = useDispatch()
 
-    render(){
-        return (
-            <div className="input">
-                <textarea className="input">
-                </textarea>
-            </div>
-        )
-    }
-} 
+    const loadingEffect = useSelector(s=>s);
+    
+    return (
+        <div className="input">
+            <textarea className="input">
+            </textarea>
+        </div>
+    )
+}
+
+export default InputBoxInstance;
