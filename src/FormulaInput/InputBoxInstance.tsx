@@ -3,18 +3,20 @@ import InputBox from "./InputBox";
 import {createStoreHook, createSelectorHook, useSelector, useDispatch} from "react-redux";
 
 
-const InputBoxInstance = props => {
+export const refreshReducer = (state, action)=>{
+    return;
+}
 
-    const dispatch = useDispatch()
+export const InputBoxInstance = props => {
 
-    const loadingEffect = useSelector(s=>s);
-    
+    let x = 12;
+    let y = 24;
+    let b = x + y === 0; 
+
     return (
         <div className="input">
             <textarea className="input">
             </textarea>
         </div>
-    )
-}
-
-export default InputBoxInstance;
+    );
+};

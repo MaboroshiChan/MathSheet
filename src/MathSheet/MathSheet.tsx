@@ -3,12 +3,31 @@ import FormulaBox from '../FormulaBox/FormulaBox';
 import Proposition from '../FormulaBox/Proposition';
 import Button from '../Button';
 import Proof from '../FormulaBox/Proof';
+import {createStoreHook, Provider, TypedUseSelectorHook} from 'react-redux';
+import { refreshReducer } from '../FormulaInput/InputBoxInstance';
+import {createStore} from 'redux';
 
 
 type MathSheetState = {
     num : number,
     props : Proposition[]
 }
+
+const MathContext = React.createContext(null);
+
+let usetore = createStoreHook(MathContext);
+
+let myStore = createStore(refreshReducer);
+
+function MyProvider({children}){
+    return (
+        <Provider context={MathContext} store={myStore}>
+          {children}
+        </Provider>
+      )
+}
+
+
 
 class MathSheet extends Component {
     state : MathSheetState
@@ -33,12 +52,14 @@ class MathSheet extends Component {
 
     render(): JSX.Element{
         return (
-        <div className="MathSheet">
-             {this.state.props}
-             <Button onClick={this.increment.bind(this)}
-              label={'++'}
-              className={"AddBox"} />
-        </div>);
+        <MyProvider>
+            <div className="MathSheet">
+                {this.state.props}
+                <Button onClick={this.increment.bind(this)}
+                label={'++'}
+                className={"AddBox"} />
+            </div>
+        </MyProvider>);
     }
 }
 
