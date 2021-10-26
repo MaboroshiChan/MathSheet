@@ -1,7 +1,7 @@
 import {createStoreHook} from 'react-redux';
 import {createStore} from 'redux';
 import React from 'react';
-import {configureStore} from 'redux-toolkit';
+import {configureStore} from '@reduxjs/toolkit';
 
 export const refreshReducer = (state, action)=>{
     return;
@@ -18,7 +18,7 @@ export let store = configureStore({
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof refreshReducer>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch
 

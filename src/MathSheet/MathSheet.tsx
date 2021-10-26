@@ -5,7 +5,6 @@ import Button from '../Button';
 import Proof from '../FormulaBox/Proof';
 import {createStoreHook, Provider, TypedUseSelectorHook} from 'react-redux';
 import {createStore} from 'redux';
-import {refreshReducer} from './store';
 
 
 type MathSheetState = {
