@@ -9,11 +9,20 @@ export const InputBoxInstance = props => {
 
     const [tex, seTeX] = useState(newTex);
 
-    const dispatch = useAppDispatch();
+    const dispatch = (value: string) => myStore.dispatch({
+        type: "REFRESH",
+        value: value
+    });
+
+    const change = event=>{
+        let value = event.target.value;
+        seTeX(value);
+        dispatch(value);
+    }
 
     return (
         <div className="input-div">
-            <textarea className="input" onChange={event=>seTeX(event.target.value)}>
+            <textarea className="input" onChange={event=>change(event)}>
                 {tex}
             </textarea>
         </div>

@@ -33,7 +33,8 @@ class MathSheet extends Component {
     increment(): void {
         this.setState({
             num : this.state.num + 1,
-            props : [...this.state.props, <Proposition conditions={["WTF"]} proof={[]} />] // need to fill props.
+            props : [...this.state.props,
+                <Proposition conditions={["WTF"]} proof={[]} />] // need to fill props.
         });
     }
 
