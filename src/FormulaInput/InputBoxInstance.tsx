@@ -1,5 +1,4 @@
 import React, { Component, Props } from 'react';
-import InputBox from "./InputBox";
 import { useAppDispatch } from '../MathSheet/Hooks';
 import { useAppSelector } from '../MathSheet/Hooks';
 

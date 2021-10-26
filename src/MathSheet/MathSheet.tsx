@@ -23,8 +23,6 @@ function MyProvider({children}){
       )
 }
 
-
-
 class MathSheet extends Component {
     state : MathSheetState
     constructor(props){

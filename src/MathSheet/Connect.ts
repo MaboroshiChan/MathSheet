@@ -10,3 +10,5 @@ export const refreshReducer = (state: string, action: MyAction<string>)=>{
             return action.value
     }
 }
+
+export const refreshDispatcher = ()=>{}

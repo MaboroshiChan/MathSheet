@@ -19,8 +19,6 @@ const myData: Proof = {
     from : "CDF"
 }
 
-
-
 class PlainText extends Component implements Submittable {
     text : string;
     constructor(props){
