@@ -1,18 +1,20 @@
-import React, { Component, Props } from 'react';
+import React, { Component, Props, useState } from 'react';
 import { useAppDispatch } from '../MathSheet/Hooks';
 import { useAppSelector } from '../MathSheet/Hooks';
+import {myStore} from '../MathSheet/Store';
 
 export const InputBoxInstance = props => {
 
-    let x = 12;
-    let y = 24;
-    let b = x + y === 0;
-
     const newTex = useAppSelector(s=>s);
 
+    const [tex, seTeX] = useState(newTex);
+
+    const dispatch = useAppDispatch();
+
     return (
-        <div className="input">
-            <textarea className="input">
+        <div className="input-div">
+            <textarea className="input" onChange={event=>seTeX(event.target.value)}>
+                {tex}
             </textarea>
         </div>
     );

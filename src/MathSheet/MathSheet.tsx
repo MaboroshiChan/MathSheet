@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Proposition from '../FormulaBox/Proposition';
 import Button from '../Button';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
-import {refreshReducer} from './Connect';
+import {myStore} from './Store';
 
 
 type MathSheetState = {
@@ -12,8 +11,6 @@ type MathSheetState = {
 }
 
 const MathContext = React.createContext(null);
-
-let myStore = createStore(refreshReducer);
 
 function MyProvider({children}){
     return (
