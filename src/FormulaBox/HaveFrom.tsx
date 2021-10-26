@@ -35,7 +35,8 @@ class HaveFrom extends Component<HaveFromProps>{
                     <span className="have"><Button 
                         onClick={this.props.addLine.bind(this)(this.props.index, null)}
                     label={'+'} className="Add line"/>
-                    Have: <LaTeXBox extract={this.setHave.bind(this)} latex_code={this.state.have}/></span> 
+                    Have: <LaTeXBox extract={this.setHave.bind(this)} 
+                    latex_code={this.state.have}/></span> 
                     <span className="from">From: <input></input> 
                     <Button onClick={()=>this.props.deleteLine(this.props.index)}
                     label={'-'} className="Delete line" /></span>
