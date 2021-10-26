@@ -3,15 +3,23 @@ import {createStore} from 'redux';
 import React from 'react';
 import {configureStore} from '@reduxjs/toolkit';
 
-export const refreshReducer = (state, action)=>{
-    return;
+type MyAction<T> = {
+    name: string,
+    value: T
+}
+
+export const refreshReducer = (state: string, action: MyAction<string>)=>{
+    switch(action.name){
+        case "REFRESH":
+            return action.value
+    }
 }
 
 const MathContext = React.createContext(null);
 
 export const useStore = createStoreHook(MathContext);
 
-export let myStore = createStore(refreshReducer);
+export let myStore = createStore<string, MyAction<any>, unknown, unknown>(refreshReducer);
 
 export let store = configureStore({
     reducer: refreshReducer

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import FormulaBox from '../FormulaBox/FormulaBox';
 import Proposition from '../FormulaBox/Proposition';
 import Button from '../Button';
-import Proof from '../FormulaBox/Proof';
-import {createStoreHook, Provider, TypedUseSelectorHook} from 'react-redux';
+import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import {refreshReducer} from './Store';
 
