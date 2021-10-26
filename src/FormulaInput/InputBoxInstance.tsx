@@ -1,4 +1,4 @@
-import React, { Component, Props, useState } from 'react';
+import {useState } from 'react';
 import { useAppDispatch } from '../MathSheet/Hooks';
 import { useAppSelector } from '../MathSheet/Hooks';
 import {myStore} from '../MathSheet/Store';

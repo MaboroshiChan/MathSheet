@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from 'redux-toolkit';
-import type { RootState } from './store';
+import type { RootState } from './Store';
 
 interface TeXState {
     code: string

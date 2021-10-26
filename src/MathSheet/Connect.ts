@@ -7,8 +7,11 @@ export type MyAction<T> = {
 export const refreshReducer = (state: string, action: MyAction<string>)=>{
     switch(action.type){
         case "REFRESH":
-            return action.value
+            return action.value;
+        default:
+            throw Error(`Not recognized action type: ${action.type}`);
     }
 }
 
-export const refreshDispatcher = ()=>{}
+export const refreshDispatcher = ()=>{};
+
