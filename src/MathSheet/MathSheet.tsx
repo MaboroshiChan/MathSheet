@@ -3,7 +3,7 @@ import Proposition from '../FormulaBox/Proposition';
 import Button from '../Button';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import {refreshReducer} from './Store';
+import {refreshReducer} from './Connect';
 
 
 type MathSheetState = {
