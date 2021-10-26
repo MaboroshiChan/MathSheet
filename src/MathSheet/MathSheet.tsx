@@ -4,8 +4,8 @@ import Proposition from '../FormulaBox/Proposition';
 import Button from '../Button';
 import Proof from '../FormulaBox/Proof';
 import {createStoreHook, Provider, TypedUseSelectorHook} from 'react-redux';
-import { refreshReducer } from '../FormulaInput/InputBoxInstance';
 import {createStore} from 'redux';
+import {refreshReducer} from './store';
 
 
 type MathSheetState = {
@@ -14,8 +14,6 @@ type MathSheetState = {
 }
 
 const MathContext = React.createContext(null);
-
-let usetore = createStoreHook(MathContext);
 
 let myStore = createStore(refreshReducer);
 

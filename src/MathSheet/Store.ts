@@ -1,19 +1,20 @@
-import {createStoreHook, Provider, TypedUseSelectorHook} from 'react-redux';
-import { refreshReducer } from '../FormulaInput/InputBoxInstance';
+import {createStoreHook} from 'react-redux';
 import {createStore} from 'redux';
 import React from 'react';
-import configureStore from 'redux-toolkit';
+import {configureStore} from 'redux-toolkit';
+
+export const refreshReducer = (state, action)=>{
+    return;
+}
 
 const MathContext = React.createContext(null);
 
-let usetore = createStoreHook(MathContext);
+export const useStore = createStoreHook(MathContext);
 
-let myStore = createStore(refreshReducer);
+export let myStore = createStore(refreshReducer);
 
-const store = configureStore({
-    reducer: {
-        tex_code: refreshReducer
-    }    
+export let store = configureStore({
+    reducer: refreshReducer
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
