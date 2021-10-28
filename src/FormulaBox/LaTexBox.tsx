@@ -1,43 +1,38 @@
-import { Component} from 'react';
+import { Component, useState, FunctionComponent} from 'react';
 import { MathComponent } from 'mathjax-react'
 import "./LaTexBox.css";
 import {myStore} from '../MathSheet/Store';
 import {connect} from 'react-redux';
 
 type LaTeXBoXProps = {
-    extract: (a: string)=>void,
-    latex_code: string
+    latex_code: string,
+    extract: (a: string)=>void
 }
 
-class LaTeXBox extends Component<LaTeXBoXProps>{
+const LaTeXBox: FunctionComponent<LaTeXBoXProps> = (props) => {
     
-    state = {
-        latex_code: this.props.latex_code
-    };
+    const [state, _] = useState(props);
 
-    clickEvent(): void{
+    function clickEvent(): void{
        myStore.dispatch({
          type: "REFRESH",
-         value: this.state.latex_code
+         value: state.latex_code
        });
     }
 
-    changeEvent(): void{
-       let s = myStore.getState();
-       this.setState({
-         latex_code: s
-       });
-       this.props.extract(s);
-    }
-
-    render(){
       return (
         <span className="TeXBox"
-             onClick={this.clickEvent.bind(this)}>
-            <MathComponent tex={this.state.latex_code} display={false}/>
+             onClick={clickEvent}>
+            <MathComponent tex={state.latex_code}
+             display={false}/>
         </span>
       )
-    }
 }
 
-export default LaTeXBox;
+const updateTeXBox = (_latex_code: string) => {
+  return {
+      latex_code: _latex_code
+  }
+}
+
+export default connect(updateTeXBox)(LaTeXBox);
