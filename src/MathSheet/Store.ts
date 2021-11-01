@@ -8,7 +8,7 @@ const MathContext = React.createContext(null);
 
 export const useStore = createStoreHook(MathContext);
 
-export let myStore = createStore<string, MyAction<any>, unknown, unknown>(refreshReducer);
+export let myStore = createStore<string, MyAction<string>, unknown, unknown>(refreshReducer);
 
 export let store = configureStore({
     reducer: refreshReducer

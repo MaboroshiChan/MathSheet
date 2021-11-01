@@ -12,7 +12,7 @@ type LaTeXBoXProps = {
 
 const LaTeXBox: FunctionComponent<LaTeXBoXProps> = (props: LaTeXBoXProps) => {
     
-    const [state0, setState] = useState(props.latex_code);
+    const [state, setState] = useState(props.latex_code);
 
     function clickEvent(): void{
        myStore.dispatch({

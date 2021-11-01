@@ -1,7 +1,9 @@
+import React from 'react';
 import {useState } from 'react';
 import { useAppDispatch } from '../MathSheet/Hooks';
 import { useAppSelector } from '../MathSheet/Hooks';
 import {myStore} from '../MathSheet/Store';
+import { Provider } from 'react-redux';
 
 export const InputBoxInstance = props => {
 
@@ -20,11 +22,15 @@ export const InputBoxInstance = props => {
         dispatch(value);
     }
 
+    const MathContext = React.createContext(null);
+
     return (
-        <div className="input-div">
-            <textarea className="input" onChange={event=>change(event)}>
-                {tex}
-            </textarea>
-        </div>
+        <Provider context={MathContext} store={myStore}>
+            <div className="input-div">
+                <textarea className="input" onChange={event=>change(event)}>
+                    {tex}
+                </textarea>
+            </div>
+        </Provider>
     );
 };

@@ -10,15 +10,6 @@ type MathSheetState = {
     props : Proposition[]
 }
 
-const MathContext = React.createContext(null);
-
-function MyProvider({children}){
-    return (
-        <Provider context={MathContext} store={myStore}>
-          {children}
-        </Provider>
-      )
-}
 
 class MathSheet extends Component {
     state : MathSheetState
@@ -44,14 +35,13 @@ class MathSheet extends Component {
 
     render(): JSX.Element{
         return (
-        <MyProvider>
             <div className="MathSheet">
                 {this.state.props}
                 <Button onClick={this.increment.bind(this)}
                 label={'++'}
                 className={"AddBox"} />
             </div>
-        </MyProvider>);
+        );
     }
 }
 
