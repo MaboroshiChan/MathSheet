@@ -11,7 +11,8 @@ const MathContext = React.createContext(null);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider context={MathContext} store={myStore}>
+    <Provider store={myStore}>
+     <MathSheet />
     <InputBoxInstance />
     </Provider>
   </React.StrictMode>,

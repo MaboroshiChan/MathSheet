@@ -37,7 +37,8 @@ export default class ShowBox extends Component<ShowBoxProps> {
                     <span className="have">
                         <Button onClick={this.props.addLine.bind(this)(this.props.index, null)}
                             label={'+'} className="Add line" />
-                        Show: <LaTeXBox extract={this.setShow.bind(this)} latex_code={this.state.show} /></span>
+                        Show: <LaTeXBox display={true}
+                        extract={this.setShow.bind(this)} latex_code={this.state.show} /></span>
                     <span className="from">From: <input></input>
                         <Button onClick={() => this.props.deleteLine(this.props.index)}
                             label={'-'} className="Delete line" /></span>

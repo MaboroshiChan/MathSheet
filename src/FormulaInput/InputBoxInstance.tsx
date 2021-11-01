@@ -9,6 +9,8 @@ export const InputBoxInstance = props => {
 
     const newTex = useAppSelector(s=>s);
 
+    console.log("newTex = " + newTex);
+
     const [tex, seTeX] = useState(newTex);
 
     const dispatch = (value: string) => myStore.dispatch({
@@ -22,15 +24,13 @@ export const InputBoxInstance = props => {
         dispatch(value);
     }
 
-    const MathContext = React.createContext(null);
-
     return (
-        <Provider context={MathContext} store={myStore}>
             <div className="input-div">
-                <textarea className="input" onChange={event=>change(event)}>
+                <textarea 
+                    className="input" 
+                    onChange={event=>change(event)}>
                     {tex}
                 </textarea>
             </div>
-        </Provider>
     );
 };

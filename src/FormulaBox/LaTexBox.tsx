@@ -3,11 +3,13 @@ import { MathComponent } from 'mathjax-react'
 import "./LaTexBox.css";
 import {myStore} from '../MathSheet/Store';
 import {connect} from 'react-redux';
+import { createNoSubstitutionTemplateLiteral } from 'typescript';
 
 type LaTeXBoXProps = {
     latex_code: string,
     latex_code_from_store: string,
-    extract: (a: string)=>void
+    extract: (a: string)=>void,
+    display: boolean
 }
 
 const LaTeXBox: FunctionComponent<LaTeXBoXProps> = (props: LaTeXBoXProps) => {
@@ -19,16 +21,15 @@ const LaTeXBox: FunctionComponent<LaTeXBoXProps> = (props: LaTeXBoXProps) => {
          type: "REFRESH",
          value: state
        });
+       console.log(props.latex_code_from_store);
        setState(props.latex_code_from_store);
     }
-
-    setState(props.latex_code);
 
       return (
         <span className="TeXBox"
              onClick={clickEvent}>
             <MathComponent tex={state}
-             display={false}/>
+             display={props.display}/>
         </span>
       )
 }
