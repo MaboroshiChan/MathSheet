@@ -3,7 +3,7 @@ import { MathComponent } from 'mathjax-react'
 import "./LaTexBox.css";
 import {myStore} from '../MathSheet/Store';
 import {connect} from 'react-redux';
-import { createNoSubstitutionTemplateLiteral } from 'typescript';
+import {useAppSelector} from '../MathSheet/Hooks';
 
 type LaTeXBoXProps = {
     latex_code: string,
@@ -21,8 +21,9 @@ const LaTeXBox: FunctionComponent<LaTeXBoXProps> = (props: LaTeXBoXProps) => {
          type: "REFRESH",
          value: state
        });
-       console.log(props.latex_code_from_store);
-       setState(props.latex_code_from_store);
+       console.log(`state = ${state}`);
+       //setState(props.latex_code_from_store);
+       console.log(`props = ${props.latex_code_from_store}`);
     }
 
       return (

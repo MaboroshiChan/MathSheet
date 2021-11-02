@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import MathSheet from "./MathSheet/MathSheet";
-import {InputBoxInstance} from "./FormulaInput/InputBoxInstance";
+import InputBoxInstance from "./FormulaInput/InputBoxInstance";
 import {Provider} from 'react-redux';
 import {myStore} from './MathSheet/Store';
 

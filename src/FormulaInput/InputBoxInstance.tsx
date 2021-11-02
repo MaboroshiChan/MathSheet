@@ -1,26 +1,20 @@
-import React from 'react';
-import {useState } from 'react';
-import { useAppDispatch } from '../MathSheet/Hooks';
-import { useAppSelector } from '../MathSheet/Hooks';
 import {myStore} from '../MathSheet/Store';
-import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
 
-export const InputBoxInstance = props => {
+type InputBoxInstanceProps = {
+    latex_code: string
+}
 
-    const newTex = useAppSelector(s=>s);
+const InputBoxInstance = (props: InputBoxInstanceProps) => {
 
-    console.log("newTex = " + newTex);
-
-    const [tex, seTeX] = useState(newTex);
-
-    const dispatch = (value: string) => myStore.dispatch({
-        type: "REFRESH",
-        value: value
+    const dispatch = (value: string) => 
+        myStore.dispatch({
+            type: "REFRESH",
+            value: value
     });
 
     const change = event=>{
         let value = event.target.value;
-        seTeX(value);
         dispatch(value);
     }
 
@@ -28,9 +22,18 @@ export const InputBoxInstance = props => {
             <div className="input-div">
                 <textarea 
                     className="input" 
-                    onChange={event=>change(event)}>
-                    {tex}
+                    onChange={event=>change(event)} value={props.latex_code}>
                 </textarea>
             </div>
     );
 };
+
+function mapStateToProp(s: string): InputBoxInstanceProps{
+    return {
+        latex_code: s
+    }
+}
+
+const ConnectedInputBoxInstance = connect(mapStateToProp)(InputBoxInstance);
+
+export default ConnectedInputBoxInstance;
