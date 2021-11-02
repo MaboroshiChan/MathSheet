@@ -7,8 +7,6 @@ import InputBoxInstance from "./FormulaInput/InputBoxInstance";
 import {Provider} from 'react-redux';
 import {myStore} from './MathSheet/Store';
 
-const MathContext = React.createContext(null);
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={myStore}>

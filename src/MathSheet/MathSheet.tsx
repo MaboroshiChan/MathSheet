@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Proposition from '../FormulaBox/Proposition';
 import Button from '../Button';
-import {Provider} from 'react-redux';
-import {myStore} from './Store';
 
 
 type MathSheetState = {
