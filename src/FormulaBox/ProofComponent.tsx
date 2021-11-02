@@ -62,6 +62,7 @@ export default class ProofComponent extends Component<ProofProps> {
     private toJSX(pf: Proof, index: number): JSX.Element{
         return match(pf)
               .with({have: select("have"), from: select("from")}, (res)=><HaveFrom
+                selected={(this.state.selectedID == index) ? true : false}
                 handleSelection={this.handleSelection.bind(this)}
                 setRoot={this.setHaveFrom.bind(this)}
                 addLine={this.addStatement.bind(this)} 
@@ -72,6 +73,7 @@ export default class ProofComponent extends Component<ProofProps> {
                 from={res.from}/>)
               .with({show: select("show"), from: select("from")}, (res)=>
               <ShowBox show={res.show} from={res.from}
+                selected={(this.state.selectedID == index)}
                 setRoot={this.setShowFrom.bind(this)}
                 addLine={this.addStatement.bind(this)} 
                 index={index} 

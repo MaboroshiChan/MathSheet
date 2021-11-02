@@ -1,13 +1,14 @@
 import React, { Component, Props } from 'react';
-import { MathComponent } from 'mathjax-react';
 import "./FormulaBox.css"
 import Button from '../Button';
 import FormulaBoxPropsType from './FormulaBoxProps';
 import LateXBox from './LaTexBox';
+import { select } from 'ts-pattern';
 
 interface FormulaBoxProps extends FormulaBoxPropsType {
   setFormula: (index: number, content: string)=>void
   handleSelection: (selected: boolean, idx: number)=>void
+  selected: boolean
 }
 
 class FormulaBox extends Component<FormulaBoxProps> {
@@ -29,12 +30,15 @@ class FormulaBox extends Component<FormulaBoxProps> {
    }
 
    render(): JSX.Element {
+       let className = this.state.selected ? "FormulaBoxSelected" : "FormulaBox";
+       console.log(`classname = ${this.state.selected}`);
        return ( // TODO: fix this
-         <div className="FormulaBox" 
+         <div className={className}
             onChange={()=>this.props.setFormula(this.props.index, this.state.content)}>
            <Button onClick={()=>this.props.addLine(this.props.index, null)}
-            label={'+'} className={"AddLiene"} />
+            label={'+'} className={"AddLine"} />
                 <LateXBox
+                 selected={this.props.selected}
                  inSelection={this.handleSelection.bind(this)}
                  extract={this.extract.bind(this)}
                  display={false} 

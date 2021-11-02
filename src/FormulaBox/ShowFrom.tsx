@@ -8,7 +8,7 @@ import LaTeXBox from './LaTexBox';
 interface ShowBoxProps extends FormulaBoxProps {
     show: string,
     from: string,
-    setRoot: (index: number) => void
+    setRoot: (index: number) => void,
 }
 
 export default class ShowBox extends Component<ShowBoxProps> {
@@ -16,7 +16,7 @@ export default class ShowBox extends Component<ShowBoxProps> {
     state = {
         show: this.props.show,
         from: this.props.from,
-        selected: false
+        selected: this.props.selected
     }
 
     setShow(show: string) {
@@ -45,6 +45,7 @@ export default class ShowBox extends Component<ShowBoxProps> {
                         <Button onClick={this.props.addLine.bind(this)(this.props.index, null)}
                             label={'+'} className="Add line" />
                         Show: <LaTeXBox display={true}
+                        selected={this.props.selected}
                         inSelection={this.handleSelection.bind(this)}
                         extract={this.setShow.bind(this)}
                         latex_code={this.state.show} /></span>

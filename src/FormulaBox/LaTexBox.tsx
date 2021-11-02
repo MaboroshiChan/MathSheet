@@ -9,18 +9,19 @@ type LaTeXBoXProps = {
     latex_code_from_store: string,
     extract: (a: string)=>void,
     display: boolean,
-    inSelection: (selected: boolean)=>void
+    inSelection: (selected: boolean)=>void,
+    selected: boolean
 }
 
 type LaTexBoxState = {
   selected: boolean,
-  content: string
+  content: string,
 }
 
 const LaTeXBox: FunctionComponent<LaTeXBoXProps> = (props: LaTeXBoXProps) => {
     
     const [state, setState] = useState<LaTexBoxState>({
-      selected: false,
+      selected: props.selected,
       content: props.latex_code
     });
 
@@ -34,12 +35,14 @@ const LaTeXBox: FunctionComponent<LaTeXBoXProps> = (props: LaTeXBoXProps) => {
             selected: true,
             content: state.content
           });
+          props.inSelection(true);
       }
       else{
           setState({
             selected: false,
             content: props.latex_code_from_store
-          })
+          });
+          props.inSelection(false);
       }
        
        // TODO: connect to the editor
