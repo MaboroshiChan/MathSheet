@@ -12,13 +12,15 @@ type ProofProps = {
 export default class ProofComponent extends Component<ProofProps> {
     
     state: {
-        proof: Proof[]
+        proof: Proof[],
+        selectedID: number | null
     }
 
     constructor(props){
         super(props);
         this.state = {
-            proof: this.props.proof
+            proof: this.props.proof,
+            selectedID: null
         }
     }
 
@@ -49,9 +51,18 @@ export default class ProofComponent extends Component<ProofProps> {
         return;
     }
 
+    private handleSelection(selected: boolean, idx: number){
+        if(selected){
+            this.setState({
+                selectedID: idx
+            });
+        }
+    }
+
     private toJSX(pf: Proof, index: number): JSX.Element{
         return match(pf)
               .with({have: select("have"), from: select("from")}, (res)=><HaveFrom
+                handleSelection={this.handleSelection.bind(this)}
                 setRoot={this.setHaveFrom.bind(this)}
                 addLine={this.addStatement.bind(this)} 
                 deleteLine={this.deleteStatement.bind(this)}

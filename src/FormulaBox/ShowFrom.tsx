@@ -16,6 +16,7 @@ export default class ShowBox extends Component<ShowBoxProps> {
     state = {
         show: this.props.show,
         from: this.props.from,
+        selected: false
     }
 
     setShow(show: string) {
@@ -30,6 +31,12 @@ export default class ShowBox extends Component<ShowBoxProps> {
         });
     }
 
+    handleSelection(selected: boolean) {
+        this.setState({
+            selected: selected
+        });
+    }
+
     render() {
         return (
             <div className="Show">
@@ -38,7 +45,9 @@ export default class ShowBox extends Component<ShowBoxProps> {
                         <Button onClick={this.props.addLine.bind(this)(this.props.index, null)}
                             label={'+'} className="Add line" />
                         Show: <LaTeXBox display={true}
-                        extract={this.setShow.bind(this)} latex_code={this.state.show} /></span>
+                        inSelection={this.handleSelection.bind(this)}
+                        extract={this.setShow.bind(this)}
+                        latex_code={this.state.show} /></span>
                     <span className="from">From: <input></input>
                         <Button onClick={() => this.props.deleteLine(this.props.index)}
                             label={'-'} className="Delete line" /></span>

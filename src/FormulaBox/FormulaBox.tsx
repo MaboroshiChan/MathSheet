@@ -7,16 +7,25 @@ import LateXBox from './LaTexBox';
 
 interface FormulaBoxProps extends FormulaBoxPropsType {
   setFormula: (index: number, content: string)=>void
+  handleSelection: (selected: boolean, idx: number)=>void
 }
 
 class FormulaBox extends Component<FormulaBoxProps> {
 
    state = {
-     content: this.props.content
+     content: this.props.content,
+     selected: false
    }
 
    extract(a: string): void{
       return;
+   }
+
+   handleSelection(selected: boolean){
+      this.setState({
+        selected: selected
+      });
+      this.props.handleSelection(selected, this.props.index);
    }
 
    render(): JSX.Element {
@@ -26,6 +35,7 @@ class FormulaBox extends Component<FormulaBoxProps> {
            <Button onClick={()=>this.props.addLine(this.props.index, null)}
             label={'+'} className={"AddLiene"} />
                 <LateXBox
+                 inSelection={this.handleSelection.bind(this)}
                  extract={this.extract.bind(this)}
                  display={false} 
                  latex_code={`${this.props.index} \\forall x, P(x)`}/>

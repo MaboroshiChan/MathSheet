@@ -7,7 +7,8 @@ import "./HaveFrom.css";
 interface HaveFromProps extends FormulaBoxProps {
     have: string,
     from: string,
-    setRoot: (index: number)=>void
+    setRoot: (index: number)=>void,
+    handleSelection: (selected: boolean, idx: number)=>void
 }
 
 class HaveFrom extends Component<HaveFromProps>{
@@ -27,6 +28,12 @@ class HaveFrom extends Component<HaveFromProps>{
             from: from
         })
     }
+
+    handleSelection(selected: boolean){
+        this.setState({
+            selected: selected
+        });
+    }
     
     render(){
         return (
@@ -35,7 +42,10 @@ class HaveFrom extends Component<HaveFromProps>{
                     <span className="have"><Button 
                         onClick={this.props.addLine.bind(this)(this.props.index, null)}
                     label={'+'} className="Add line"/>
-                    Have: <LaTeXBox display={true} extract={this.setHave.bind(this)}
+                    Have: <LaTeXBox
+                    inSelection={this.handleSelection.bind(this)} 
+                    display={true} 
+                    extract={this.setHave.bind(this)}
                     latex_code={this.state.have}/></span> 
                     <span className="from">From: <input></input> 
                     <Button onClick={()=>this.props.deleteLine(this.props.index)}

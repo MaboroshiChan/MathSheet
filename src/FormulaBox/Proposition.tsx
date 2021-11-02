@@ -5,7 +5,8 @@ import ProofComponent from "./ProofComponent";
 
 type PropositionState = {
     conditions: string[],
-    proof: Proof[]
+    proof: Proof[],
+    selectedID: number 
 }
 
 type PropositionProps = {
@@ -21,7 +22,8 @@ class Proposition extends Component<PropositionProps> {
         super(props);
         this.state = {
           conditions : this.props.conditions,
-          proof: this.props.proof
+          proof: this.props.proof,
+          selectedID: null
         }
         
     }
@@ -67,12 +69,21 @@ class Proposition extends Component<PropositionProps> {
         return;
     }
 
+    handleSelection(selected: boolean, idx: number){
+        if(selected){
+            this.setState({
+                selectedID: idx,
+            });
+        }
+    }
+
     render(): JSX.Element {
         return (<div className="Prop">
             <div className="Definitions">
                 <b> Definitions </b>
                 {this.state.conditions.map((condition, idx)=>(
-                    <FormulaBox addLine={this.addCondition.bind(this)} 
+                    <FormulaBox handleSelection={this.handleSelection.bind(this)}
+                                addLine={this.addCondition.bind(this)} 
                                 deleteLine={this.deleteCondition.bind(this)}
                                 index={idx}
                                 content={condition}

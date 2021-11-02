@@ -9,6 +9,7 @@ type LaTeXBoXProps = {
     latex_code_from_store: string,
     extract: (a: string)=>void,
     display: boolean,
+    inSelection: (selected: boolean)=>void
 }
 
 type LaTexBoxState = {
