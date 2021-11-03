@@ -3,7 +3,6 @@ import "./FormulaBox.css"
 import Button from '../Button';
 import FormulaBoxPropsType from './FormulaBoxProps';
 import LateXBox from './LaTexBox';
-import { select } from 'ts-pattern';
 
 interface FormulaBoxProps extends FormulaBoxPropsType {
   setFormula: (index: number, content: string)=>void
@@ -15,7 +14,7 @@ class FormulaBox extends Component<FormulaBoxProps> {
 
    state = {
      content: this.props.content,
-     selected: false
+     selected: this.props.selected
    }
 
    extract(a: string): void{

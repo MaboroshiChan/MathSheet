@@ -79,11 +79,12 @@ class Proposition extends Component<PropositionProps> {
     }
 
     render(): JSX.Element {
+        console.log(`selectedID = ${this.state.selectedID}`);
         return (<div className="Prop">
             <div className="Definitions">
                 <b> Definitions </b>
                 {this.state.conditions.map((condition, idx)=>(
-                    <FormulaBox selected={(idx === this.state.selectedID)? true : false}
+                    <FormulaBox selected={(idx === this.state.selectedID)}
                                 handleSelection={this.handleSelection.bind(this)}
                                 addLine={this.addCondition.bind(this)} 
                                 deleteLine={this.deleteCondition.bind(this)}
