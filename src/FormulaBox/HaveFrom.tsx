@@ -42,15 +42,15 @@ class HaveFrom extends Component<HaveFromProps>{
             <div className="HaveFrom" 
                 onChange={()=>this.props.setRoot(this.props.index)}>
                     <span className="have"><Button 
-                        onClick={this.props.addLine.bind(this)(this.props.index, null)}
+                        onClick={()=>this.props.addLine.bind(this)(this.props.index, null)}
                     label={'+'} className="Add line"/>
                     Have: <LaTeXBox
                     selected={this.state.selected}
                     inSelection={this.handleSelection.bind(this)} 
-                    display={true} 
+                    display={true}
                     extract={this.setHave.bind(this)}
                     latex_code={this.state.have}/></span> 
-                    <span className="from">From: <input></input> 
+                    <span className="from">From: <input value={this.state.from}></input> 
                     <Button onClick={()=>this.props.deleteLine(this.props.index)}
                     label={'-'} className="Delete line" /></span>
             </div>

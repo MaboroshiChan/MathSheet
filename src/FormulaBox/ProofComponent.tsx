@@ -3,6 +3,10 @@ import HaveFrom from './HaveFrom';
 import {match, when, select} from 'ts-pattern';
 import Proof from './ProofType'
 import ShowBox from './ShowFrom';
+import FormulaBox from './FormulaBox';
+import { MathComponent } from 'mathjax-react';
+import LaTeXBox from './LaTexBox';
+import { extract } from 'fp-ts/lib/ReadonlyNonEmptyArray';
 
 type ProofProps = {
     proof: Proof[]
@@ -12,6 +16,7 @@ type ProofProps = {
 export default class ProofComponent extends Component<ProofProps> {
     
     state: {
+        attr: number,
         proof: Proof[],
         selectedID: number | null
     }
@@ -19,6 +24,7 @@ export default class ProofComponent extends Component<ProofProps> {
     constructor(props){
         super(props);
         this.state = {
+            attr: 10,
             proof: this.props.proof,// this.props.proof,
             selectedID: null
         }
@@ -74,7 +80,7 @@ export default class ProofComponent extends Component<ProofProps> {
                 from={res.from}/>)
               .with({show: select("show"), from: select("from")}, (res)=>
               <ShowBox show={res.show} from={res.from}
-                selected={(this.state.selectedID == index)}
+                selected={(this.state.selectedID === index)}
                 setRoot={this.setShowFrom.bind(this)}
                 addLine={this.addStatement.bind(this)} 
                 index={index} 
@@ -84,10 +90,9 @@ export default class ProofComponent extends Component<ProofProps> {
      }
 
      render(){
-       console.log(`my proof = ${this.state.proof}`);
          return (
             <div className="Proof" onChange={()=>this.props.setProof(this.state.proof)}>
-                {this.state.proof.map((x, i)=>this.toJSX(x, i))}
+                {this.state.proof.map((x, i)=> this.toJSX(x,i))}
             </div>
         )
      }

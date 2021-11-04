@@ -5,8 +5,8 @@ import FormulaBoxPropsType from './FormulaBoxProps';
 import LateXBox from './LaTexBox';
 
 interface FormulaBoxProps extends FormulaBoxPropsType {
-  setFormula: (index: number, content: string)=>void
-  handleSelection: (selected: boolean, idx: number)=>void
+  setFormula?: (index: number, content: string)=>void
+  handleSelection?: (selected: boolean, idx: number)=>void
   selected: boolean
 }
 

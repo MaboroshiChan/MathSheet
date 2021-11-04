@@ -100,7 +100,8 @@ class Proposition extends Component<PropositionProps> {
             </h3>
             <div className="Proof">
                 <b>Proof: </b> 
-                <ProofComponent proof={[{have: "a", from: "b"}, {have: "ff", from: "ggwe"}]} 
+                <ProofComponent proof={[{have: "\\sum_{k = 0}^{100} k = \\frac{n(n+1)}{2}", from: "b"},
+                 {have: "\\sum_{k = 0}^{100} k = \\frac{n(n+1)}{2}", from: "ggwe"}]} 
                 setProof={this.setProof.bind(this)}/>
              </div>
         </div>);
