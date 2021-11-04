@@ -1,8 +1,6 @@
-import { Component } from 'react';
 import './MathBox.css';
-import Submittable from '../Interfaces/Submittable';
 import Proposition from '../FormulaBox/Proposition';
-import Proof from '../FormulaBox/Proof'
+import Proof from '../FormulaBox/ProofType'
 
 type MathBoxState = {
     conditions : string[],

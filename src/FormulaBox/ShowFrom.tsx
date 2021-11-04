@@ -1,7 +1,7 @@
 import React, { Component, Props } from 'react';
 import FormulaBoxProps from './FormulaBoxProps';
 import ProofComponent from './ProofComponent';
-import Proof from './Proof';
+import Proof from './ProofType';
 import Button from '../Button';
 import LaTeXBox from './LaTexBox';
 

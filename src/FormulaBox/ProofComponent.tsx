@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import HaveFrom from './HaveFrom';
 import {match, when, select} from 'ts-pattern';
-import Proof from './Proof'
+import Proof from './ProofType'
 import ShowBox from './ShowFrom';
 
 type ProofProps = {
@@ -19,9 +19,10 @@ export default class ProofComponent extends Component<ProofProps> {
     constructor(props){
         super(props);
         this.state = {
-            proof: this.props.proof,
+            proof: this.props.proof,// this.props.proof,
             selectedID: null
         }
+        console.log("proof length = " + this.state.proof.length);
     }
 
    private addStatement(floorNum : number, box: JSX.Element = null): void {
@@ -83,6 +84,7 @@ export default class ProofComponent extends Component<ProofProps> {
      }
 
      render(){
+       console.log(`my proof = ${this.state.proof}`);
          return (
             <div className="Proof" onChange={()=>this.props.setProof(this.state.proof)}>
                 {this.state.proof.map((x, i)=>this.toJSX(x, i))}

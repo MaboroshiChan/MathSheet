@@ -12,3 +12,8 @@
     border-bottom: 1px solid;
     position: relative;
 }
+
+.DeleteLine{
+    position: absolute;
+    left: 1150px;
+}

@@ -1,7 +1,8 @@
 import { Component } from "react";
 import FormulaBox from './FormulaBox';
-import Proof from './Proof';
+import Proof from './ProofType';
 import ProofComponent from "./ProofComponent";
+import Button from "../Button";
 
 type PropositionState = {
     conditions: string[],
@@ -28,9 +29,10 @@ class Proposition extends Component<PropositionProps> {
         
     }
 
-    addCondition(cond : string): void {
+    addCondition(index: number, cond : string): void {
+        this.state.conditions.splice(index + 1, 0, cond);
         this.setState({
-            conditions : [...this.state.conditions, cond]
+            conditions : this.state.conditions
         });
     }
 
@@ -82,11 +84,11 @@ class Proposition extends Component<PropositionProps> {
         console.log(`selectedID = ${this.state.selectedID}`);
         return (<div className="Prop">
             <div className="Definitions">
-                <b> Definitions </b>
+                <b> Definitions </b> 
                 {this.state.conditions.map((condition, idx)=>(
                     <FormulaBox selected={(idx === this.state.selectedID)}
                                 handleSelection={this.handleSelection.bind(this)}
-                                addLine={this.addCondition.bind(this)} 
+                                addLine={this.addCondition.bind(this)}
                                 deleteLine={this.deleteCondition.bind(this)}
                                 index={idx}
                                 content={condition}
@@ -98,7 +100,7 @@ class Proposition extends Component<PropositionProps> {
             </h3>
             <div className="Proof">
                 <b>Proof: </b> 
-                <ProofComponent proof={this.props.proof} 
+                <ProofComponent proof={[{have: "a", from: "b"}, {have: "ff", from: "ggwe"}]} 
                 setProof={this.setProof.bind(this)}/>
              </div>
         </div>);
