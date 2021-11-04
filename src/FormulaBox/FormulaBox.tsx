@@ -14,7 +14,7 @@ class FormulaBox extends Component<FormulaBoxProps> {
 
    state = {
      content: this.props.content,
-     selected: this.props.selected
+     selected: this.props.selected,
    }
 
    extract(a: string): void{

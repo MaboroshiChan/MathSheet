@@ -3,6 +3,7 @@ import { MathComponent } from 'mathjax-react'
 import "./LaTexBox.css";
 import {myStore} from '../MathSheet/Store';
 import {connect} from 'react-redux';
+import {UpdateType} from '../MathSheet/Connect';
 
 type LaTeXBoXProps = {
     latex_code: string,
@@ -11,6 +12,7 @@ type LaTeXBoXProps = {
     display: boolean,
     inSelection: (selected: boolean)=>void,
     selected: boolean
+    id: number
 }
 
 type LaTexBoxState = {
@@ -60,9 +62,10 @@ const LaTeXBox: FunctionComponent<LaTeXBoXProps> = (props: LaTeXBoXProps) => {
       )
 }
 
-const updateTeXBox = (_latex_code: string) => {
+const updateTeXBox = (data: UpdateType) => {
   return {
-      latex_code_from_store: _latex_code
+      latex_code_from_store: data._latex_code,
+      id: data._id
   }
 }
 

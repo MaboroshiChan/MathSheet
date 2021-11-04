@@ -2,13 +2,13 @@ import {createStoreHook} from 'react-redux';
 import {createStore} from 'redux';
 import React from 'react';
 import {configureStore} from '@reduxjs/toolkit';
-import {refreshReducer, MyAction} from './Connect';
+import {refreshReducer, MyAction, UpdateType} from './Connect';
 
 const MathContext = React.createContext(null);
 
 export const useStore = createStoreHook(MathContext);
 
-export let myStore = createStore<string, MyAction<string>, unknown, unknown>(refreshReducer);
+export let myStore = createStore<UpdateType, MyAction<string>, unknown, unknown>(refreshReducer);
 
 export let store = configureStore({
     reducer: refreshReducer

@@ -1,5 +1,6 @@
 import {myStore} from '../MathSheet/Store';
 import { connect } from 'react-redux';
+import { values } from 'fp-ts/lib/ReadonlyMap';
 
 type InputBoxInstanceProps = {
     latex_code: string

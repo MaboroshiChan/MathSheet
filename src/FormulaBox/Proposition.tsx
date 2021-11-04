@@ -3,11 +3,11 @@ import FormulaBox from './FormulaBox';
 import Proof from './ProofType';
 import ProofComponent from "./ProofComponent";
 import Button from "../Button";
+import { myStore } from "../MathSheet/Store";
 
 type PropositionState = {
     conditions: string[],
-    proof: Proof[],
-    selectedID: number 
+    proof: Proof[]
 }
 
 type PropositionProps = {
@@ -23,8 +23,7 @@ class Proposition extends Component<PropositionProps> {
         super(props);
         this.state = {
           conditions : this.props.conditions,
-          proof: this.props.proof,
-          selectedID: null
+          proof: this.props.proof
         }
         
     }
@@ -34,6 +33,10 @@ class Proposition extends Component<PropositionProps> {
         this.setState({
             conditions : this.state.conditions
         });
+        myStore.dispatch({
+            type: "CREATION",
+            value: null
+        })
     }
 
     updateInfo(): void{
@@ -81,12 +84,11 @@ class Proposition extends Component<PropositionProps> {
     }
 
     render(): JSX.Element {
-        console.log(`selectedID = ${this.state.selectedID}`);
         return (<div className="Prop">
             <div className="Definitions">
                 <b> Definitions </b> 
                 {this.state.conditions.map((condition, idx)=>(
-                    <FormulaBox selected={(idx === this.state.selectedID)}
+                    <FormulaBox selected={false}
                                 handleSelection={this.handleSelection.bind(this)}
                                 addLine={this.addCondition.bind(this)}
                                 deleteLine={this.deleteCondition.bind(this)}
