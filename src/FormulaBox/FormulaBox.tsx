@@ -3,6 +3,7 @@ import "./FormulaBox.css"
 import Button from '../Button';
 import FormulaBoxPropsType from './FormulaBoxProps';
 import LateXBox from './LaTexBox';
+import { myStore } from '../MathSheet/Store';
 
 interface FormulaBoxProps extends FormulaBoxPropsType {
   setFormula?: (index: number, content: string)=>void
@@ -28,13 +29,21 @@ class FormulaBox extends Component<FormulaBoxProps> {
       this.props.handleSelection(selected, this.props.index);
    }
 
+   clickEvent(){
+     this.props.addLine(this.props.index, null);
+     myStore.dispatch({
+       type: "CREATION",
+       value: null
+     })
+   }
+
    render(): JSX.Element {
        let className = this.state.selected ? "FormulaBoxSelected" : "FormulaBox";
        console.log(`classname = ${this.state.selected}`);
        return ( // TODO: fix this
          <div className={className}
             onChange={()=>this.props.setFormula(this.props.index, this.state.content)}>
-           <Button onClick={()=>this.props.addLine(this.props.index, null)}
+           <Button onClick={this.clickEvent.bind(this)}
             label={'+'} className={"AddLine"} />
                 <LateXBox
                  selected={this.props.selected}

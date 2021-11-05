@@ -33,10 +33,6 @@ class Proposition extends Component<PropositionProps> {
         this.setState({
             conditions : this.state.conditions
         });
-        myStore.dispatch({
-            type: "CREATION",
-            value: null
-        })
     }
 
     updateInfo(): void{
