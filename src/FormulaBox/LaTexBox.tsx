@@ -1,74 +1,37 @@
 import { Component, useState, FunctionComponent} from 'react';
-import { MathComponent } from 'mathjax-react'
+import * as Editor from 'equation-editor-react';
 import "./LaTexBox.css";
 import {myStore} from '../MathSheet/Store';
 import {connect} from 'react-redux';
 import {UpdateType} from '../MathSheet/Connect';
+import EquationEditor from "equation-editor-react";
+import { extract } from 'fp-ts/lib/Tuple';
 
 type LaTeXBoXProps = {
     latex_code: string,
-    latex_code_from_store: string,
     extract: (a: string)=>void,
-    display: boolean,
-    inSelection: (selected: boolean)=>void,
-    selected: boolean
-    id: number
 }
 
 type LaTexBoxState = {
-  selected: boolean,
   content: string,
 }
 
 const LaTeXBox: FunctionComponent<LaTeXBoXProps> = (props: LaTeXBoXProps) => {
-    
-    const [state, setState] = useState<LaTexBoxState>({
-      selected: props.selected,
-      content: props.latex_code
-    });
+    const [equation, setEquation] = useState("");
 
-    function clickEvent(): void{
-      if(!state.selected){
-          myStore.dispatch({
-            type: "REFRESH",
-            value: state.content
-          });
-          setState({
-            selected: true,
-            content: state.content
-          });
-          props.inSelection(true);
-      }
-      else{
-          setState({
-            selected: false,
-            content: props.latex_code_from_store
-          });
-          props.inSelection(false);
-      }
-       
-       // TODO: connect to the editor
+    const handleOnchange = (latex: string) => {
+        setEquation(latex);
+        props.extract(latex);
     }
-
-      return (
-        <span className="TeXBox"
-             onClick={clickEvent}>
-            <MathComponent 
-             tex={state.selected? 
-              props.latex_code_from_store 
-              : state.content}
-             display={props.display}/>
-        </span>
+    
+    return (
+        <EquationEditor
+          value={equation}
+          onChange={handleOnchange}
+          autoCommands="pi theta sqrt sum prod alpha beta gamma rho"
+          autoOperatorNames="sin cos tan"
+        />
       )
 }
 
-const updateTeXBox = (data: UpdateType) => {
-  return {
-      latex_code_from_store: data._latex_code,
-      id: data._id
-  }
-}
-
-const myComponent = connect(updateTeXBox)(LaTeXBox);
-
-export default myComponent;
+export default LaTeXBox;
