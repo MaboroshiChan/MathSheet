@@ -15,11 +15,11 @@ type LaTexBoxState = {
 }
 
 const LaTeXBox: FunctionComponent<LaTeXBoXProps> = (props: LaTeXBoXProps) => {
-    const [equation, setEquation] = useState("");
+    const [equation, setEquation] = useState(props.latex_code);
 
-    const handleOnchange = (latex: string) => {
-        setEquation(latex);
-        props.extract(latex);
+    const handleOnchange = (a: string) => {
+        setEquation(a);
+        props.extract(a);
     }
     
     return (

@@ -37,7 +37,9 @@ const Equation = (props: EquationProps):JSX.Element => {
                         solution: str,
                         reason: x.reason,
                         error: x.error
-                    }))
+                    }));
+                    console.log(`toArray = ${values.toArray().map(x=>x.solution)}`)
+                    props.extract(values.toArray());
                 }}
             ></Line>))}
         </div>

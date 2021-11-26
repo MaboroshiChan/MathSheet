@@ -14,11 +14,17 @@ const Line = (props: LineProps): JSX.Element => {
 
     const [latex, setTex] = useState(props.latex);
 
+    const handleOnchange = (a: string) => {
+        props.extract(a);
+        setTex(a);
+        console.log(a);
+    }
+
     return (
         <div className="line">
             {props.index}. 
             <LaTeXBox latex_code={latex}
-             extract={()=>{}} 
+             extract={handleOnchange} 
              ></LaTeXBox>
              <input className="reason" value={props.reason}>
              </input>

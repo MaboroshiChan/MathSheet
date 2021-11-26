@@ -1,5 +1,5 @@
 .Editor{
-    width: 20%;
-    height: 100%;
+    width: 120px;
     position: relative;
+    border-width: 1px;
 }
