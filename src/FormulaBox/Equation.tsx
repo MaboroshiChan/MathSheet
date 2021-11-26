@@ -4,6 +4,7 @@ import {List} from 'immutable';
 import Line from './Line';
 import { string } from 'fp-ts';
 import Message from '../Interfaces/Message';
+import EquationEditor from "equation-editor-react";
 
 type EquationProps = {
     equation: string,
@@ -14,9 +15,17 @@ type EquationProps = {
 const Equation = (props: EquationProps):JSX.Element => {
 
     const [values, setValues] = React.useState<List<Message>>(List(props.messages));
+    const [equation, setEq] = React.useState(props.equation);
 
     return (
         <div className="Equation">
+            Equation: <br/>
+            <EquationEditor value={equation} onChange={setEq} 
+                autoCommands="pi theta sqrt sum prod alpha beta gamma rho"
+                autoOperatorNames="sin cos tan"/>
+            <br/>
+            Solution:
+            <br/>
             {props.messages.map((x, i)=>(
             <Line
                 errorMsg={x.error}

@@ -1,9 +1,7 @@
-import { Component, useState, FunctionComponent} from 'react';
+import React, { Component, useState, FunctionComponent} from 'react';
 import * as Editor from 'equation-editor-react';
 import "./LaTexBox.css";
-import {myStore} from '../MathSheet/Store';
 import {connect} from 'react-redux';
-import {UpdateType} from '../MathSheet/Connect';
 import EquationEditor from "equation-editor-react";
 import { extract } from 'fp-ts/lib/Tuple';
 
@@ -25,12 +23,14 @@ const LaTeXBox: FunctionComponent<LaTeXBoXProps> = (props: LaTeXBoXProps) => {
     }
     
     return (
-        <EquationEditor
-          value={equation}
-          onChange={handleOnchange}
-          autoCommands="pi theta sqrt sum prod alpha beta gamma rho"
-          autoOperatorNames="sin cos tan"
-        />
+        <span className="Editor">
+            <EquationEditor
+                value={equation}
+                onChange={handleOnchange}
+                autoCommands="pi theta sqrt sum prod alpha beta gamma rho"
+                autoOperatorNames="sin cos tan"
+            />
+        </span>
       )
 }
 
