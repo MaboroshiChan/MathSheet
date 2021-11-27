@@ -3,10 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import MathSheet from "./MathSheet/MathSheet";
+import { Provider } from 'react-redux'
+import {createStore} from 'redux';
+
+const store = createStore((s, action)=>{
+    
+})
 
 ReactDOM.render(
   <React.StrictMode>
-     <MathSheet />
+    <Provider store={store}>
+      <MathSheet />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -33,13 +33,14 @@ const Equation = (props: EquationProps):JSX.Element => {
                 index={i} 
                 latex={x.solution} 
                 extract={(str: string)=>{
-                    setValues(values.set(i, {
+                    const new_values = values.set(i, {
                         solution: str,
                         reason: x.reason,
                         error: x.error
-                    }));
-                    console.log(`toArray = ${values.toArray().map(x=>x.solution)}`)
-                    props.extract(values.toArray());
+                    });
+                    setValues(new_values);
+                    console.log(`new value = ${new_values.toArray()}}`);
+                    props.extract(new_values.toArray());
                 }}
             ></Line>))}
         </div>
