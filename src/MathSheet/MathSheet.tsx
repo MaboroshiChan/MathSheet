@@ -2,9 +2,10 @@ import React, { Component, useEffect } from 'react';
 import Equation from '../FormulaBox/Equation'
 import Message from '../Interfaces/Message';
 import axios from 'axios';
+import EquationType from '../Interfaces/Equation';
 
 /** Testing data */
-let _data = {
+let _data: EquationType = {
     equation: "x ^ 2 + 2 * x = 0",
     messages: [{solution: "x + 1", 
     reason: "显然",

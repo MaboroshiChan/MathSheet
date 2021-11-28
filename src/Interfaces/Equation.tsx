@@ -1,8 +1,8 @@
 import Message from './Message';
 
-type Equation = {
+type EquationType = {
     equation: string,
     messages: Message[];
 }
 
-export default Equation;
+export default EquationType;
