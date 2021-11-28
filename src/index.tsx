@@ -3,11 +3,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import MathSheet from "./MathSheet/MathSheet";
-import { Provider } from 'react-redux'
-import {createStore} from 'redux';
+import { Provider } from 'react-redux';
+import {createStore, Action} from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+import ActionType from './Interfaces/Action';
+import Equation from './Interfaces/Equation';
 
-const store = createStore((s, action)=>{
-    
+const store = createStore((s: Equation, action: Action<ActionType>)=>{
+    switch(action.type.typeName){
+      case "MODIFY":
+        let new_data = action.type.value;
+        let index = action.type.index;
+        let message = s.messages[index];
+        s.messages[index] = {
+          solution: new_data,
+          reason: message.reason,
+          error: message.error
+        };
+        return s;
+      default:
+        throw Error(`Unknown action type ${action.type}`);
+    }
 })
 
 ReactDOM.render(
