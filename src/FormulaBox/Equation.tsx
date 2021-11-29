@@ -1,10 +1,10 @@
 import React, { Component, Props } from 'react';
-import LaTexBox from './LaTeXBox';
 import {List} from 'immutable';
 import Line from './Line';
-import { string } from 'fp-ts';
 import Message from '../Interfaces/Message';
 import EquationEditor from "equation-editor-react";
+import {connect} from 'react-redux';
+import EquationType from '../Interfaces/Equation';
 
 type EquationProps = {
     equation: string,
@@ -39,7 +39,6 @@ const Equation = (props: EquationProps):JSX.Element => {
                         error: x.error
                     });
                     setValues(new_values);
-                    console.log(`new value = ${new_values.toArray()}}`);
                     props.extract(new_values.toArray());
                 }}
             ></Line>))}

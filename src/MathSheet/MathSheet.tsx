@@ -3,6 +3,7 @@ import Equation from '../FormulaBox/Equation'
 import Message from '../Interfaces/Message';
 import axios from 'axios';
 import EquationType from '../Interfaces/Equation';
+import {connect} from 'react-redux';
 
 /** Testing data */
 let _data: EquationType = {
@@ -17,11 +18,11 @@ let _data: EquationType = {
     reason: "显然",
     error: "",}]
 }
+
 /**
  * TODO: fix issue of returning to original input prop. 
  * @returns 
  */
-
 const MathSheet = ():JSX.Element =>{
 
     const [data, setData] = React.useState(_data);
@@ -39,5 +40,6 @@ const MathSheet = ():JSX.Element =>{
         </div>
     );
 }
+
 
 export default MathSheet;
