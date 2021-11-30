@@ -31,6 +31,7 @@ const Equation = (props: EquationProps):JSX.Element => {
                 index={i} 
                 latex={x.solution} 
                 extract={(s:string, r:string)=>{
+                    console.log(`r = ${r}`);
                     props.extract(i, {
                         solution: s,
                         reason: r, 

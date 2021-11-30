@@ -30,10 +30,11 @@ const Line = (props: LineProps): JSX.Element => {
              <input className="reason"
              value={reason} 
              onChange={(e)=>{
-                 setReason(e.target.value)
-                 props.extract(latex, reason);
-                }
-               }>
+                 let new_reason = e.target.value
+                 setReason(new_reason);
+                 props.extract(latex, new_reason);
+              }
+            }>
              </input>
              <span className="error">{"props.errorMsg"}</span>
         </div>
