@@ -2,7 +2,7 @@ import Message from './Message';
 
 type EquationType = {
     equation: string,
-    messages: Message[];
+    messages: Message[]
 }
 
 export default EquationType;

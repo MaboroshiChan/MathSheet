@@ -1,9 +1,8 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component, useEffect, useRef } from 'react';
 import Equation from '../FormulaBox/Equation'
 import Message from '../Interfaces/Message';
 import axios from 'axios';
 import EquationType from '../Interfaces/Equation';
-import {connect} from 'react-redux';
 
 /** Testing data */
 let _data: EquationType = {
@@ -25,18 +24,16 @@ let _data: EquationType = {
  */
 const MathSheet = ():JSX.Element =>{
 
-    const [data, setData] = React.useState(_data);
-
     return (
         <div>
             <Equation 
-            equation={data.equation}
-            messages={data.messages} 
-            extract={(lst: Message[])=>{
-                console.log(lst.map(x=>x.solution))
-                setData({equation: data.equation, messages: lst});
+            equation={_data.equation}
+            messages={_data.messages} 
+            extract={(index, msg)=>{
+                _data.messages[index] = msg;
+                console.log(_data.messages.map(x=>x.solution));
+                console.log(_data.messages.map(x=>x.reason));
             }}></Equation>
-            <code>data = {data.messages.map(x=>x.solution)}</code>
         </div>
     );
 }

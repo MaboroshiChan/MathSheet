@@ -1,15 +1,13 @@
-import React, { Component, Props } from 'react';
+import React from 'react';
 import {List} from 'immutable';
 import Line from './Line';
 import Message from '../Interfaces/Message';
 import EquationEditor from "equation-editor-react";
-import {connect} from 'react-redux';
-import EquationType from '../Interfaces/Equation';
 
 type EquationProps = {
     equation: string,
     messages: Array<Message>,
-    extract: (lst: Message[])=>void
+    extract: (index: number, msg: Message)=>void
 }
 
 const Equation = (props: EquationProps):JSX.Element => {
@@ -22,7 +20,7 @@ const Equation = (props: EquationProps):JSX.Element => {
             Equation: <br/>
             <EquationEditor value={equation} onChange={setEq} 
                 autoCommands="pi theta sqrt sum prod alpha beta gamma rho"
-                autoOperatorNames="sin cos tan"/>
+                autoOperatorNames="sin cos tan log ln"/>
             <br/>
             Solution:
             <br/>
@@ -32,14 +30,12 @@ const Equation = (props: EquationProps):JSX.Element => {
                 reason={x.reason}
                 index={i} 
                 latex={x.solution} 
-                extract={(str: string)=>{
-                    const new_values = values.set(i, {
-                        solution: str,
-                        reason: x.reason,
+                extract={(s:string, r:string)=>{
+                    props.extract(i, {
+                        solution: s,
+                        reason: r, 
                         error: x.error
                     });
-                    setValues(new_values);
-                    props.extract(new_values.toArray());
                 }}
             ></Line>))}
         </div>

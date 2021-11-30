@@ -9,6 +9,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import ActionType from './Interfaces/Action';
 import Equation from './Interfaces/Equation';
 
+/** 
 const store = createStore((s: Equation, action: Action<ActionType>)=>{
     switch(action.type.typeName){
       case "MODIFY":
@@ -22,15 +23,14 @@ const store = createStore((s: Equation, action: Action<ActionType>)=>{
         };
         return s;
       default:
-        throw Error(`Unknown action type ${action.type}`);
+        throw Error(`Unknown action type ${action.type.typeName}`);
     }
 })
+*/
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <MathSheet />
-    </Provider>
+    <MathSheet />
   </React.StrictMode>,
   document.getElementById('root')
 );

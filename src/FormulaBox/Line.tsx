@@ -7,17 +7,18 @@ type LineProps = {
     errorMsg : string,
     latex: string,
     reason: string,
-    extract: (s: string)=>void
+    extract: (s: string, r: string)=>void
 }
 
 const Line = (props: LineProps): JSX.Element => {
 
     const [latex, setTex] = useState(props.latex);
+    const [reason, setReason] = useState(props.reason);
 
-    const handleOnchange = (a: string) => {
-        props.extract(a);
-        setTex(a);
-        console.log(a);
+    const handleOnchange = (solution: string)=>{
+        props.extract(solution, reason);
+        console.log(`reason = ${reason}`)
+        setTex(solution);
     }
 
     return (
@@ -26,7 +27,13 @@ const Line = (props: LineProps): JSX.Element => {
             <LaTeXBox latex_code={latex}
              extract={handleOnchange} 
              ></LaTeXBox>
-             <input className="reason" value={props.reason}>
+             <input className="reason"
+             value={reason} 
+             onChange={(e)=>{
+                 setReason(e.target.value)
+                 props.extract(latex, reason);
+                }
+               }>
              </input>
              <span className="error">{"props.errorMsg"}</span>
         </div>
