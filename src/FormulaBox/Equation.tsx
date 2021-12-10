@@ -3,6 +3,7 @@ import {List} from 'immutable';
 import Line from './Line';
 import Message from '../Interfaces/Message';
 import EquationEditor from "equation-editor-react";
+import './Equation.css'
 
 type EquationProps = {
     equation: string,

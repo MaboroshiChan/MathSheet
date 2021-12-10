@@ -24,19 +24,23 @@ const Line = (props: LineProps): JSX.Element => {
     return (
         <div className="line">
             {props.index}. 
-            <LaTeXBox latex_code={latex}
-             extract={handleOnchange} 
-             ></LaTeXBox>
-             <input className="reason"
-             value={reason} 
-             onChange={(e)=>{
-                 let new_reason = e.target.value
-                 setReason(new_reason);
-                 props.extract(latex, new_reason);
-              }
+            <div className="Formula">
+                <LaTeXBox latex_code={latex}
+                extract={handleOnchange} 
+                />
+             </div>
+             <div className="reason">
+             <input
+                value={reason} 
+                onChange={(e)=>{
+                    let new_reason = e.target.value;
+                    setReason(new_reason);
+                    props.extract(latex, new_reason);
+                }
             }>
              </input>
-             <span className="error">{"props.errorMsg"}</span>
+             </div>
+             <div className="error">{"Error Message 1121213231312"}</div>
         </div>
     )
 }
